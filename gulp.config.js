@@ -15,7 +15,7 @@ module.exports = function(args) {
     this.remote_conf = `${__dirname}/.ftppass`;
     this.remote_d = (fs.existsSync(this.remote_conf)) ? JSON.parse(fs.readFileSync(this.remote_conf, 'utf8')) : null;
     this.ftp_info = (this.remote_d) ? this.remote_d.ftp : null;
-    this.email_d = (this.remote_d) ? this.remote_d.email : null;
+
 
     this.img = {
       in: `.${this.email_src}**/img/**/*.{png,gif,jpg}`,
@@ -24,21 +24,13 @@ module.exports = function(args) {
 
     this.ftp = (this.remote_d) ? {
             //default title is set to same name as package.json
-            stagingFolder: this.ftp_info.remotePath + this.pkg_json.name,
             host: this.ftp_info.host,
-            port: this.ftp_info.port,
             user: this.ftp_info.user,
             pass: this.ftp_info.pass,
+            path: this.ftp_info.path,
 
     } : null;
 
-    this.email = (this.remote_d) ? {
-            //send-mail credentials
-            mailType: this.email_d.mailType,
-            mailService: this.email_d.mailService,
-            mailUsername: this.email_d.user,
-            mailPassword: this.email_d.pass
-    } : null;
 
     this.server = {
       host: "localhost",

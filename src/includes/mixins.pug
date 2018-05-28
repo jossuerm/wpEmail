@@ -11,8 +11,7 @@ mixin vSpacer(height, width_p = "100%")
     td(width=width_p height=height style=`font-size:0px; line-height:${height}px;mso-line-height-rule:exactly;`) &nbsp;
 
 mixin hSpacer(width)
-    tr
-        td(width=width height=1 style=`font-size:0px; line-height:1px;mso-line-height-rule:exactly;`) &nbsp;
+  td(width=width height=1 style=`font-size:0px; line-height:1px;mso-line-height-rule:exactly;`) &nbsp;
 
 mixin spacer(size)
     span(style=`font-size:0px; width=${size.width ? size.width : 1}px; height:${size.height ? size.height: 1}px; line-height:${size.height ? size.height: 1}px;mso-line-height-rule:exactly;display:block;`)&attributes(attributes) &nbsp;
@@ -106,6 +105,7 @@ mixin fullbgImage(params)
 
 //- params img, color,width,height, bgcolor, bordercolor, link, radius,font-family,font_size,font_weight, text, send by object literal
 //- +button({})  or +button({width:205, height:40, bgcolor:'green', radius:4})
+//- For two lines button, use two_lines: true
 mixin button(params)
 
     -var bgColor = `background-color:${params.bgcolor? params.bgcolor:"gray"};`;
@@ -119,45 +119,52 @@ mixin button(params)
     -var text= params.text ? params.text:"Button";
     -var text_hide = (params.img || params.bordercolor)?"mso-hide:all;":""
     -var height= `${params.height ? params.height:"40"}px;`;
+    -var Outlookheight = height
     -var link = params.link ? params.link:"#"
     -var stroke = params.bordercolor ? `strokecolor='${params.bordercolor}'` : "stroke='f'"
-    -var width= `width:${params.width ? params.width :"100"}px;`;
+    -var width= `width:${params.width ? params.width :"100"}px;`
+    -var buttonPadding= params.two_lines ? `padding-top:10px; padding-bottom:10px` : " "
+
+
+
+    if (params.two_lines)
+      - Outlookheight = `${params.height*2}px;`
 
     div
         if params.radius
           <!--[if mso]>
-          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{link}" style='height:#{height}v-text-anchor:middle;#{width}' arcsize='#{Math.ceil((params.radius/params.height)*100)}%' #{stroke} #{fill}>
+          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{link}" style='height:#{Outlookheight}v-text-anchor:middle;#{width}' arcsize='#{Math.ceil((params.radius/params.height)*100)}%' #{stroke} #{fill}>
           if params.img
             <v:fill type="tile" src="#{params.img}" color="#{params.bgcolor}" />
           <w:anchorlock/>
           if (params.bordercolor || params.img)
-            <center style='#{color} #{font_family} #{font_size} #{font_weight}'>#{text}</center>
+            <center style='#{color} #{font_family} #{font_size} #{font_weight}'>!{text}</center>
             </v:roundrect>
             <![endif]-->
-            a(href=link style=`${bgColor}${bg_img}${color}display:inline-block;${font_family}${font_size}${font_weight}border-radius:${params.radius}px;${border}line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) #{text}
+            a(href=link target="_blank" style=`${bgColor}${bg_img}${color}display:inline-block;${font_family}${font_size}${font_weight}border-radius:${params.radius}px;${border}line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) !{text}
           else
             <center>
             <![endif]-->
-              a(href=link style=`${bgColor}${color}display:inline-block;${font_family}${font_size}${font_weight}border-radius:${params.radius}px;line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) #{text}
+              a(href=link target="_blank" style=`${bgColor}${color}display:inline-block;${font_family}${font_size}${font_weight}border-radius:${params.radius}px;line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) !{text}
             <!--[if mso]>
             </center>
             </v:roundrect>
             <![endif]-->
         else
           <!--[if mso]>
-          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{link}" style='height:#{height}v-text-anchor:middle;#{width}' #{stroke} #{fill}>
+          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{link}" style='height:#{Outlookheight}v-text-anchor:middle;#{width}' #{stroke} #{fill}>
           if params.img
             <v:fill type="tile" src="#{params.img}" color="#{params.bgcolor}" />
           <w:anchorlock/>
           if (params.bordercolor || params.img)
-            <center style='#{color}#{font_family}#{font_size}#{font_weight}'>#{text}</center>
+            <center style='#{color}#{font_family}#{font_size}#{font_weight}'>!{text}</center>
             </v:rect>
             <![endif]-->
-            a(href=link style=`${bgColor}${bg_img}${color}display:inline-block;${font_family}${font_size}${font_weight}${border}line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) #{text}
+            a(href=link target="_blank" style=`${bgColor}${bg_img}${color}display:inline-block;${font_family}${font_size}${font_weight}${border}line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) !{text}
           else
             <center>
             <![endif]-->
-              a(href=link style=`${bgColor}${color}display:inline-block;${font_family}${font_size}${font_weight}line-height:${height}text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}`) #{text}
+              a(href=link target="_blank" style=`${bgColor}${color}display:inline-block;${font_family}${font_size}${font_weight}line-height:${params.two_lines ? (params.height/2+4) : params.height}px;text-align:center;text-decoration:none;${width}-webkit-text-size-adjust:none;${text_hide}${buttonPadding}`) !{text}
             <!--[if mso]>
             </center>
             </v:rect>

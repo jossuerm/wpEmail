@@ -21,6 +21,11 @@ gulp.task('images', ()=>{
     .pipe(gulp.dest(config.img.out))
 });
 
+gulp.task('boilerplate',()=>{
+  //Name param
+  return gulp.src(`.${config.src}/settings/boilerplate/**/*`)
+  .pipe(gulp.dest(`.${config.email_src}/${args.name}`));
+});
 
 gulp.task('index',()=> {
     let dirs = config.helpers.getFolders('.'+config.email_src);
@@ -85,7 +90,7 @@ gulp.task('server', ()=>{
     .on("change", (event) => {
         config.helpers.changeMsg(event);
     });
-    gulp.watch(`.${config.email_src}**/img/*`,{cwd:'./'},['images'])
+    gulp.watch(`src/**/img/*`,{cwd:'./'},['images'])
     .on("change", (event) => {
       reload()
     })
@@ -108,27 +113,31 @@ gulp.task('lint-css', () => {
 
 
 //FTP
-gulp.task('ftp', ["deploy"], () => {
+gulp.task('ftp', () => {
 
-    let conn = ftp.create( {
-      host:     config.ftp.host,
-      user:     config.ftp.user,
-      password: config.ftp.pass,
-      parallel: 10,
-      log:      gutil.log,
-      secure: true
-  } );
-
-  return gulp.src( globs, { base: config.dest, buffer: false } )
-    .pipe( conn.newer( config.ftp.stagingFolder ) ) // only upload newer files
-    .pipe( conn.dest( config.ftp.stagingFolder ) );
+  let conn = ftp.create( {
+    host:     config.ftp.host,
+    user:     config.ftp.user,
+    password: config.ftp.pass,
+    parallel: 10,
+    log:      $.util.log,
+    secure: true,
+    secureOptions : { rejectUnauthorized: false }
+  });
+  let globs = [
+    '!dist/index.html',
+    'dist/**'
+  ]
+  let dirs = config.helpers.getFolders('.'+config.email_src);
+    return gulp.src( globs, {  base: `./dist/${dirs[0]}`, buffer: false })
+    .pipe(conn.newer( `.${config.ftp.path}${dirs[0]}` )) // only upload newer files
+    .pipe(conn.dest( `${config.ftp.path}${dirs[0]}` ));
 });
 
 //ZIP email
 gulp.task('zip', ["deploy"], () => {
 
    let dirs = config.helpers.getFolders('.'+config.email_src);
-
     return dirs.map((folder) => {
         let f_path = path.join(config.zip_path, folder, '**/*');
         return gulp.src(f_path)

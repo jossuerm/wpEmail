@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "test":  "jest"
   },
   "keywords": [
     "sass",
@@ -15,17 +16,7 @@
     "emails",
     "gulp"
   ],
-  "author": "Luis Padilla Moreno",
-  "contributors": [
-    {
-      "name": "Luis Montero Barquero",
-      "email": "luismbcr@gmail.com"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LuisPadillaM/Email-boilerplate-with-pug"
-  },
+  "author": "OHG - DDB Team",
   "license": "ISC",
   "devDependencies": {
     "@thasmo/gulp-juice": "^0.2.0",
@@ -47,6 +38,7 @@
     "gulp-stylelint": "^3.9.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.0.0",
+    "jest": "^23.0.0",
     "jstransformer-clean-css": "^2.0.0",
     "jstransformer-scss": "^0.1.4",
     "pug-lint": "^2.4.0",
@@ -54,7 +46,7 @@
     "stylelint": "^7.10.1",
     "stylelint-scss": "^1.4.4",
     "vinyl-ftp": "^0.6.0",
-    "yargs": "^7.0.2"
+    "yargs": "^7.1.0"
   },
   "engine": "node >= 6.4.0"
 }

@@ -5,6 +5,7 @@ html
         style
           :clean-css
             body{
+                font-family: arial;
                 text-align:center;
             }
             section{
@@ -14,9 +15,11 @@ html
             }
             ul{
                 display: inline-block;
+                text-align: left;
             }
     body
         h1 List of emails
+        p  To create new project enter in CLI : gulp boilerplate --name "Projectname"
         section(class="hide")
             ul
                 each val in links

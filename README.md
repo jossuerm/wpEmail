@@ -17,14 +17,56 @@ $ npm start
 ```
 
 ### Steps to create new email
- 
- - Create new folder inside src/emails with project name
- - Create the index.pug file and extend from desired layout.
- - Create your img, styles, and components folders
- - You can optionally create a data.json to store your data
+ - Enter in CLI : gulp boilerplate --name projectname
+ - Then create your own components
+
  
 ----------
 
+### Handle Email COPY
+There is a data.json, here you could handle the copy for your email
+Example of the data.JSON
+```javascript	
+{
+  "header": {
+    "title": "Title",
+    "button":"contribute"
+  },
+  "content":{
+    "title": "Tell Us What You Think in 5 Minutes or Less"
+  },
+  "social_icons": [
+      {
+        "img": "icon-facebook.png",
+        "url": "#",
+        "width": "35",
+        "height": "29"
+      },
+      {
+        "img": "icon-twitter.png",
+        "url": "#",
+        "width": "35",
+        "height": "29"
+      },
+      {
+        "img": "icon-instagram.png",
+        "url": "#",
+        "width": "35",
+        "height": "29"
+      }
+    ],
+    "comments": [
+      "We created this template based on what emails developers needs, it is not an easy task but we bring you help",
+      "It is a long trip that never ends if you have any suggestion let us know"
+    ]
+}
+
+```
+
+Then in your email you could access them, for example the header title:
+```
+ !{header.title}
+ ```
 
 ### Reuse Reset Attributes
 
@@ -121,8 +163,25 @@ The gulpfile.babel.js file provides different task commands using your commandli
 - **$ gulp zip** - zip every email in dist folder and store 
 them under zip folder in dist location
 
-
+##### FTP Deployment
+First create a .ftppass file in project root, after execute **gulp ftp**
+```json
+{
+  "ftp":{
+    "host":    "domain",
+    "user":     "user",
+    "pass": "password",
+    "path" :"ftp/folder/path"
+  }
+}
+```
 ----------
+
+### Unit Testing
+Run next command 
+ ```sh
+$ npm test
+```
 
 ### The final build
 Run next instruction and find your build inside dist folder.
