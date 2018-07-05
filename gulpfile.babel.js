@@ -37,6 +37,23 @@ gulp.task('index',()=> {
     .pipe(reload({stream:true}))
 });
 
+gulp.task('fragments',()=> {
+  let dirs = config.helpers.getFolders(`./${config.email_src}`);
+  return gulp.src(`.${config.email_src}**/fragments/*.pug`)
+  .pipe(pug({basedir: "src"}))
+
+  .pipe(juice({
+    includeResources:true,
+    removeStyleTags:false,
+    preserveMediaQueries: true,
+    webResources:{ links:true, scripts:false, images:false, relativeTo: "."}
+  }))
+  .pipe(gulp.dest(config.dest))
+  .pipe(reload({stream:true}))
+});
+
+
+
 gulp.task('inline',['pug'], function(){
    return gulp.src("dist/**/index.html")
         .pipe(juice({
@@ -154,7 +171,7 @@ gulp.task('deploy', () => {
     .pipe(gulp.dest(config.dest))
 });
 
-gulp.task('build',['clean','index','images','pug']);
+gulp.task('build',['clean','index','images','pug', 'fragments']);
 
 gulp.task('default', () =>{
     runSequence('index','images','pug','server');
