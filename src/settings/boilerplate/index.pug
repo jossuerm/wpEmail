@@ -7,9 +7,9 @@ block styles
   style(type="text/css")
     include:scss(outputStyle="compressed") ./styles/inline.scss
     include:clean-css ./styles/index.css
-  <!--[if (gte mso 9)]>
-    include:clean-css ./styles/outlook.css
-  <![endif]-->
+    <!--[if (gte mso 9)]>
+      include:clean-css ./styles/outlook.css
+    <![endif]-->
 block content
   //- body(style="background-color: #eeeeee;" bgcolor="#eeeeee")
 

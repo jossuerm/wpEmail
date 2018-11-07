@@ -2,6 +2,7 @@
 dist/
 #ignore remote config file
 .ftppass
+package-lock.json
 
 ### macOS ###
 *.DS_Store
