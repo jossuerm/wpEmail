@@ -6,15 +6,19 @@ mixin addImg(src,alt)
     -var imgStyle = {'display': 'block', 'padding': '0', color:'#ffffff', 'font-family':'Helvetica, arial, sans-serif', 'font-size': '16px'}
     img(src=src alt=alt border="0" style=imgStyle)&attributes(attributes)
 
-mixin vSpacer(height, width_p = "100%")
+mixin vSpacer(height, colspan = "1", width_p = "100%")
   tr&attributes(attributes)
-    td(width=width_p height=height style=`font-size:0px; line-height:${height}px;mso-line-height-rule:exactly;`) &nbsp;
+    td(width=width_p height=height style=`font-size:0px; line-height:${height}px;mso-line-height-rule:exactly;` colspan=colspan) &nbsp;
 
 mixin hSpacer(width)
   td(width=width height=1 style=`font-size:0px; line-height:1px;mso-line-height-rule:exactly;`) &nbsp;
 
 mixin spacer(size)
     span(style=`font-size:0px; width=${size.width ? size.width : 1}px; height:${size.height ? size.height: 1}px; line-height:${size.height ? size.height: 1}px;mso-line-height-rule:exactly;display:block;`)&attributes(attributes) &nbsp;
+
+mixin dividerLine(height, color)
+  tr&attributes(attributes)
+    td(width="100%" height=height style=`font-size:0px; line-height:${height}px;mso-line-height-rule:exactly;background-color:${color};padding:0` bgcolor=color) &nbsp;
 
 //- params img,bgcolor, width, height
 mixin tdbackground(params)
