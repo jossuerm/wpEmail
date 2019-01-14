@@ -3,6 +3,9 @@
   .mobile-hide {
     display: none !important;
   }
+  .mobile-show {
+    display: block !important;
+  }
   .mobile-center {
     text-align: center !important;
   }
