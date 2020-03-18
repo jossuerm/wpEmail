@@ -20,6 +20,12 @@ html(xmlns="http://www.w3.org/1999/xhtml", xmlns:v="urn:schemas-microsoft-com:vm
     //-   include:scss(outputStyle="compressed") ../includes/scss/boiler.scss
     //-   include:scss(outputStyle="compressed") ../includes/scss/utils.scss
     block styles
+    <!--[if gte mso 9]><xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml><![endif]-->
   body(style=`margin:0!important; padding:0!important; font-family: ${fallback};` topmargin="0" leftmargin="0" marginheight="0" marginwidth="0")
     block content
     if analytics
