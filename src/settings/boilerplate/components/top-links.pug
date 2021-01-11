@@ -1,0 +1,46 @@
+table(width="100%" align="center" class="deviceWidth" bgcolor="#ffffff")&attributes(tableAtt)
+  +vSpacer(15)
+  tr
+    td
+      table(width="100%" align="center")&attributes(tableAtt)
+        tr
+          td
+            table(width="100%" align="center")&attributes(tableAtt)
+              tr
+                td(width="25") &nbsp;
+                td(width="497")
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      td(align="left")
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td(style="font-size:9px;") Lorem ipsum dolor, sit amet consectetur elit Doloremque.
+                          tr
+                            td(style="font-size:9px;") Lorem ipsum dolor sit amet?&#32;
+                              +link("https://www.google.com", "adipiscing elit fringilla potenti").underline
+                    +vSpacer(15)
+                    tr.mobile-hide
+                      td
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td(align="left")
+                              table(width="100%")&attributes(tableAtt)
+                                tr
+                                  td(style="font-size:9px;")
+                                    +link("https://www.google.com", "LOREM IPSUM DOLOR").underline
+                            td(align="right" style="font-size:9px;")
+                              +link("https://www.google.com", "LOREM IPSUM DOLOR SIT, AMET CONSECTETUR").underline
+                    <!--[if !mso]><!-->
+                    tr.mobile-show
+                      td
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td(style="font-size:9px;")
+                              +link("https://www.google.com", "LOREM IPSUM DOLOR").underline
+                          +vSpacer(5)
+                          tr
+                            ttd(align="right" style="font-size:9px;")
+                              +link("https://www.google.com", "LOREM IPSUM DOLOR SIT, AMET CONSECTETUR").underline
+                    <!--<![endif]-->
+                td(width="78") &nbsp;
+        +vSpacer(14)

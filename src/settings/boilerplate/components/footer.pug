@@ -1,16 +1,43 @@
-table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
+table(width=max_w align="center" class="mobile-table" bgcolor=white)&attributes(tableAtt)
+  +vSpacer(35)
   tr
-    td(align="center" style="padding: 35px; background-color: #ffffff;" bgcolor=white)
-      table(align="center" width="100%")&attributes(tableAtt)
+    td
+      table(width="100%")&attributes(tableAtt)
         tr
-          td(align="center")
-            img(src=img_path+"logo-footer.png" width="37" height="37" style="display: block; border: 0px;")
-        tr
-          td(class="f_normal" align="center" style=`font-family: ${fallback}; font-size: 14px; line-height: 24px; padding: 5px 0 10px 0;`)
-            p(class="f_bold" style="font-size: 14px; line-height: 18px; color: #333333;").
-              Plaza Victoria Avenue 1#[br]
-              Heredia, CR 40101
-        tr
-          td(align="left" class="f_normal" style=`font-family: ${fallback}; font-size: 14px; line-height: 24px;`)
-            p(class="f_normal" style="font-size: 14px; line-height: 20px; color: #777777;").
-              If you didn't create an account using this email address, please ignore this email or #[a(href="#" target="_blank" style="color: #777777;") unsusbscribe].
+          td
+            table(width="100%")&attributes(tableAtt)
+              tr
+                +hSpacer(35)
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      td(style="font-size: 14px; line-height: 20px; color: #777777;").f_normal If you didn't create an account using this email address, please ignore this email or&#32;
+                        +link("https://google.com", "unsubscribe")(style="color:#777777;")
+                        | #[sup 2,5]
+                    +vSpacer(29)
+                    tr
+                      td.footer-text.cerulean&attributes(tdCenter) 
+                        +link("https://google.com", "Unsubscribe").cerulean.f_bold.underline
+                        | &nbsp;|&nbsp;
+                        +link("https://google.com", "Privacy Policy").cerulean.f_bold.underline
+                        | &nbsp;|&nbsp;
+                        +link("https://google.com", "Terms &amp; Conditions").cerulean.f_bold.underline
+                    +vSpacer(54)
+                    tr
+                      td
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td&attributes(tdCenter)
+                              +addImg("logo-footer.png", "alt logo")(width="37" height="37")
+                    +vSpacer(41)
+                    tr
+                      td
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td.footer-text.abbey(style="line-height:20px;")&attributes(tdCenter) &copy;
+                            +hSpacer(4)
+                            td.footer-text.abbey(style="letter-spacing:-0.1px;line-height:20px;") 2021 OHG. All Rights Reserved. 2/21 XXX-XX-XXXX 123&nbsp;Test Street, abcde, AB 12345 • #[a.cerulean.underline(href="tel:+12345678900") 1&#8209;234&#8209;567&#8209;8900] •&#32;
+                              +link("https://google.com", "test.com").cerulean.underline
+                    +vSpacer(50)
+                +hSpacer(35)
+  +vSpacer(35)

@@ -1,17 +1,32 @@
-table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
+table(width=max_w align="center" class="mobile-table" bgcolor=white)&attributes(tableAtt)
+  +vSpacer(20)
   tr
-    td(align="center" style="background-color: #ffffff;" bgcolor=white)
-      img(src=img_path+"arrow-up.png" width="46" height="22" style="display: block; border: 0px;")
+    td&attributes(tdCenter)(bgcolor=white style="background-color: #ffffff;")
+      +addImg("arrow-up.png", "alt arrow")(width="46" height="22")
   tr
-    td(align="center" style=" padding: 35px; background-color: #1b9ba3; border-bottom: 20px solid #48afb5;" bgcolor="#1b9ba3")
-      table(align="center" width="100%")&attributes(tableAtt)
+    td(style="background-color:#1b9ba3;" bgcolor="#1b9ba3;")&attributes(tdCenter)
+      table(width="100%")&attributes(tableAtt)
         tr
-          td(align="center")
-            table
+          td&attributes(tdCenter)
+            table(width="100%")&attributes(tableAtt)
+              +vSpacer(35)
               tr
-                each icon in social_icons
-                  td(style="padding: 0 10px;")
-                    a(href=icon.url target="_blank")
-                    img(src=img_path+icon.img width=icon.width height=icon.height style="display: block; border: 0px;")
-                td(class="f_normal" style=`font-family: ${fallback}; font-size: 20px; line-height: 24px; padding: 0 10px;`)
-                  a(href="#" target="_blank" class="white" style="text-decoration: none;") BLOG
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      +hSpacer(35)
+                      td(width="100%")&attributes(tdCenter)
+                        table&attributes(tableAtt)
+                          tr
+                            each icon in social_icons
+                              +hSpacer(10)
+                              td(width=icon.width height=icon.height)&attributes(tdCenter)
+                                a(href=icon.url target="_blank")
+                                  img(src=img_path+icon.img width=icon.width height=icon.height style="display: inline-block; border: 0px;")
+                              +hSpacer(10)
+                            +hSpacer(10)
+                            td(width="60" style="font-size: 20px; line-height: 24px;").f_normal
+                              +link("#", "BLOG").white.no-underline
+                      +hSpacer(35)
+              +vSpacer(35)
+              +dividerLine(20, "#48afb5;")

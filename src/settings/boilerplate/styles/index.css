@@ -12,7 +12,18 @@
   .mobile-table {
     width: 100% !important;
   }
+  img.fluidImage {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
 }
 
 /* ANDROID CENTER FIX */
 div[style*="margin: 16px 0;"] { margin: 0 !important; }
+
+/* center content on samsung mail */
+#MessageViewBody, #MessageWebViewDiv {
+  width: 100%;
+  margin: 0 auto !important;
+}

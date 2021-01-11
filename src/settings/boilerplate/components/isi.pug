@@ -1,0 +1,59 @@
+table(width=max_w align="center" class="mobile-table" bgcolor="#ffffff")&attributes(tableAtt)
+  tr
+    td
+      table(width="100%")&attributes(tableAtt)
+        tr
+          +hSpacer(26)
+          td
+            table(width="100%")&attributes(tableAtt)
+              +vSpacer(10)
+              tr
+                td(align="left").f_bold INDICATIONS AND USAGE
+              +vSpacer(12)
+              tr
+                td(align="left").
+                  #[span.f_bold Nullam:] Nullam elementum sit amet massa non cursus. Duis molestie arcu a risus dignissim posuere. Maecenas ac purus vitae eros viverra interdum sit amet sed augue. Ut lectus orci, mollis at velit at, mattis ultrices massa.
+              +vSpacer(8)
+              tr
+                td(align="left").
+                  #[span.f_bold Elementum:] Nullam elementum sit amet massa non cursus. Duis molestie arcu a risus dignissim posuere. Maecenas ac purus vitae eros viverra interdum sit amet sed augue. Ut lectus orci, mollis at velit at, mattis ultrices massa.
+              +vSpacer(8)
+              tr
+                td(align="left").
+                  #[span.f_bold Interdum:] Nullam elementum sit amet massa non cursus. Duis molestie arcu a risus dignissim posuere. Maecenas ac purus vitae eros viverra interdum sit amet sed augue:
+              +vSpacer(4)
+              tr
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      td
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td(align="center" valign="top" width="22") &bull;
+                            td(align="left").
+                              #[span.f_bold Suspendisse:] Suspendisse potenti. Maecenas euismod facilisis lacus, sit amet varius lorem dapibus sed. Etiam euismod arcu at urna vulputate, eget dictum tortor tempus. Donec quis ullamcorper neque.
+                    +vSpacer(8)
+                    tr
+                      td
+                        table(width="100%")&attributes(tableAtt)
+                          tr
+                            td(align="center" valign="top" width="22") &bull;
+                            td(align="left").
+                              #[span.f_bold Accumsan:] ivamus fermentum, turpis vitae vestibulum blandit, felis velit tempor augue, eget ultricies odio diam nec ipsum. Sed sagittis dolor in sem condimentum accumsan. Integer non lobortis eros. Sed porttitor fringilla lacinia.
+              +vSpacer(13)
+              tr
+                td(align="left").f_bold ivamus fermentum, turpis vitae&#32;
+                  +link("https://google.com", "PI")
+                  | , condimentum accumsan.
+              +vSpacer(20)
+              tr
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      td #[span.f_bold References:]
+                        each item, index in references
+                          -var num = index + 1
+                          span #[b !{' ' + num}.]&nbsp;!{item}
+
+              +vSpacer(18)
+          +hSpacer(27)

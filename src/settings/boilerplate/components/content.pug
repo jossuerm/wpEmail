@@ -1,26 +1,39 @@
 table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
   tr
-    td(align="center" style="padding: 35px; background-color: #ffffff;" bgcolor=white)
-      table(align="center" width="100%")&attributes(tableAtt)
+    td
+      table(width="100%" bgcolor="#ffffff")&attributes(tableAtt)
         tr
-          td(align="center")
-            img(src=img_path+"hero-image-feedback.png" width="120" height="96")
-        tr
-          td(align="center" class="f_normal" style=`font-family: ${fallback}; font-size: 16px; line-height: 24px; padding-top: 25px; padding-bottom: 15px; border-bottom: 3px solid #eeeeee;`)
-            h2(class="f_bold" style="font-size: 30px; line-height: 36px; color: #333333; margin: 0;").
-              #{content.title}
-            p(class="f_normal" style="font-size: 16px; line-height: 24px; color: #777777;").
-              #{comments[0]}
-        tr
-          td(align="center" style="padding: 35px 0 15px 0;")
-            table&attributes(tableAtt)
+          +hSpacer(35)
+          td
+            table(width="100%")&attributes(tableAtt)
               tr
-                td(align="center" style="border-radius: 5px;" bgcolor="#ed8e20")
-                  a(href="#" target="_blank" class="white" style=`font-size: 18px; font-family: ${fallback}; text-decoration: none; border-radius: 5px; background-color: #ed8e20; padding: 15px 30px; border: 1px solid #ed8e20; display: block;`).
-                    Offer Feedback
-        +dividerLine(2, "#333333")
-        tr
-          td(align="center" class="f_normal" style=`font-family: ${fallback}; font-size: 18px; line-height: 24px;`)
-            p(class="f_bold" style="font-size: 18px; line-height: 24px; color: #333333;") Thank you, for trying it
-            p(class="f_normal" style="font-size: 16px; line-height: 24px; color: #777777;").
-              #{comments[1]}
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    +vSpacer(35)
+                    tr
+                      td&attributes(tdCenter)
+                        +addImg("hero-image-feedback.png", "alt text")(width="120" height="96")
+                    +vSpacer(15)
+                    tr
+                      td&attributes(tdCenter)(style="font-size: 30px; line-height: 36px; color: #333333; margin: 0;").f_bold #{content.title}
+                    +vSpacer(16)
+                    each val in comments
+                      tr
+                        td&attributes(tdCenter).f_normal(style="font-size: 16px; line-height: 24px; color: #777777;")=val
+                      +vSpacer(5)
+                    +vSpacer(32)
+                    +dividerLine(3, "#eeeeee")
+                    +vSpacer(35)
+                    tr
+                      td&attributes(tdCenter)
+                        +button({width:190, height:56, bgcolor:'#ed8e20', bordercolor:'#ed8e20', radius:5, font_family:`${fallback}`, font_size:'18', font_weight:'400', link: 'https://google.com', text: 'Offer Feedback'})
+                    +vSpacer(15)
+                    +dividerLine(2, "#333333")
+                    +vSpacer(18)
+                    tr
+                      td&attributes(tdCenter).f_bold(style="font-size: 18px; line-height: 24px;color: #333333;") Thank you, for trying it#[sup 1,5]
+                    +vSpacer(18)
+                    tr
+                      td&attributes(tdCenter)(style="font-size: 16px; line-height: 24px; color: #777777;").
+                        #{comments[1]}
+          +hSpacer(35)

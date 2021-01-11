@@ -24,9 +24,11 @@ block content
       td(align="center" style=`background-color: ${bg_color};` bgcolor=bg_color)
         //  WRAPPER TABLE
         table(align="center" width=max_w class="mobile-table")&attributes(tableAtt)
-                tr
-                  td
-                    include fragments/header.pug
-                    include components/content.pug
-                    include components/info-bar.pug
-                    include components/footer.pug
+          tr
+            td
+              include components/top-links.pug
+              include fragments/header.pug
+              include components/content.pug
+              include components/isi.pug
+              include components/info-bar.pug
+              include components/footer.pug

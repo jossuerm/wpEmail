@@ -2,7 +2,7 @@
 .outlookUnderline {
   text-decoration: underline!important;
 }
-body,table,td,font{font-family: "Helvetica, Arial, sans-serif" !important; }
+body,table,td,font{font-family: Arial, Helvetica, sans-serif !important; }
 .outShow{
 width: 100%  !important;
 height: auto  !important;

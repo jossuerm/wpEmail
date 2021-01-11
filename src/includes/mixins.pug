@@ -210,3 +210,6 @@ mixin mobile_h_s(show,hide)
 mixin tel_link(number, number_link, link_class = 'tel_link')
   -var link = (number_link? number_link : number)
   a(class=link_class href=`tel://${number}` target="_blank" style='color:#000;text-decoration:none;') #{link}
+
+mixin link(href, text)
+  a(href=href target="_blank")&attributes(attributes) !{text}

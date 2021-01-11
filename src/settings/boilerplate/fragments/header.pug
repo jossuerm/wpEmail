@@ -1,21 +1,29 @@
+include ../../../includes/general.pug
 include ../global.pug
 table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
   tr
-    td(align="center" valign="top" style="font-size:0; padding: 35px;" bgcolor="#044767")
-      table(align="left" width="250" class="mobile-table")&attributes(tableAtt)
+    td
+      table(width="100%" bgcolor="#044767")&attributes(tableAtt)
+        +vSpacer(35)
         tr
-          td(align="left" valign="top" style=`font-family: ${fallback}; font-size:30px; line-height: 48px;` class="mobile-center f_bold")
-            h1( class="white f_bold" style="font-size: 30px; margin: 0;").
-              Welcome
-      table(align="right" width="250" class="mobile-hide")&attributes(tableAtt)
-        tr
-          td(class="f_normal" align="right" valign="top" style=`font-family: ${fallback}; font-size: 48px; line-height: 48px;`)
-            table(align="right")&attributes(tableAtt)
+          td
+            table(width="100%")&attributes(tableAtt)
               tr
-                td(class="f_normal" style=`font-family: ${fallback}; font-size: 18px; `)
-                  p(class="white f_normal" style="font-size: 18px;  margin: 0;")
-                    a(href="#" target="_blank" class="white" style="text-decoration: none;").
-                      More Info &nbsp;
-                td(class="f_normal" style=`font-family: ${fallback}; font-size: 18px; line-height: 24px;`)
-                  a(href="#" target="_blank" class="white" style="text-decoration: none;")
-                    img(src=img_path+"shop.png" width="27" height="23" style="display: block; border: 0px;")
+                +hSpacer(35)
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      td(width="250" align="left" valign="top" style="font-size:30px;").mobile-table.mobile-center.white.f_bold.
+                        Welcome
+                      +hSpacer(161)
+                      td(width="119" align="right" valign="top").mobile-hide
+                        table(width="100%" align="right")&attributes(tableAtt)
+                          +vSpacer(9)
+                          tr
+                            td(width="92" style="font-size: 18px;").f_normal
+                              +link("https://google.com", "More Info &nbsp;").white.no-underline
+                            td(width="27").f_normal
+                              a(href="#" target="_blank").white.no-underline
+                                +addImg("shop.png", "shop alt")(width="27" height="23")
+                +hSpacer(35)
+        +vSpacer(35)

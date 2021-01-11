@@ -1,13 +1,32 @@
 @import "variables.scss";
 
-.white{
+.white {
   color: $white;
 }
-
-.f_normal{
+.cerulean {
+  color: $cerulean;
+}
+.f_normal {
   font-weight: 400;
 }
-
-.f_bold{
-  font-weight: 800;
+.f_bold {
+  font-weight: 700;
+}
+.underline {
+  text-decoration: underline;
+}
+.no-underline {
+  text-decoration: none;
+}
+.mobile-show {
+  display: none;
+}
+sup {
+  line-height: 0;
+  font-size: 60%;
+  mso-ansi-font-size: 95%;
+}
+img {
+  display: block;
+  border: 0;
 }
