@@ -1,3 +1,5 @@
+include ../../../includes/general.pug
+
 table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
   tr
     td
@@ -10,14 +12,14 @@ table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
                 td
                   table(width="100%")&attributes(tableAtt)
                     +vSpacer(35)
-                    tr
+                    trs
                       td&attributes(tdCenter)
                         +addImg("hero-image-feedback.png", "alt text")(width="120" height="96")
                     +vSpacer(15)
                     tr
-                      td&attributes(tdCenter)(style="font-size: 30px; line-height: 36px; color: #333333; margin: 0;").f_bold #{content.title}
+                      td&attributes(tdCenter)(style="font-size: 30px; line-height: 36px; color: #333333; margin: 0;").f_bold #{data.content.title}
                     +vSpacer(16)
-                    each val in comments
+                    each val in data.comments
                       tr
                         td&attributes(tdCenter).f_normal(style="font-size: 16px; line-height: 24px; color: #777777;")=val
                       +vSpacer(5)
@@ -35,5 +37,5 @@ table(width=max_w align="center" class="mobile-table")&attributes(tableAtt)
                     +vSpacer(18)
                     tr
                       td&attributes(tdCenter)(style="font-size: 16px; line-height: 24px; color: #777777;").
-                        #{comments[1]}
+                        #{data.comments[1]}
           +hSpacer(35)

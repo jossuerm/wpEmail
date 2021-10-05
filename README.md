@@ -1,19 +1,28 @@
 # Email-boilerplate-with-pug
-Email boilerplate developed with pug that takes advantage of inheritance, variables and Modularization.
-
+Email boilerplate developed with pug that takes advantage of inheritance, variables, plugins, rules and modularization using WebPack5.
 
 ----------
 
+## Installation
 
-### Installation
+To prepare this project to run, you'll need to have **NodeJs** 14.17.6 or up installed in your computer. I suggest to use NVM in order to manage differen versions easily.
 
-To prepare this project to run, you'll need to have nodejs 6.4.0 or up installed in your computer. I suggest to use NVM in order to install node and manage diference version easily.
-
-Install dependencies and start the server.
+### Install dependencies:
 
 ```sh
 $ npm install
-$ npm start
+```
+
+### Start Server:
+
+Development:
+```sh
+$ npm run dev
+```
+
+Production:
+```sh
+$ npm run build
 ```
 
 ### Steps to create new email
@@ -147,44 +156,8 @@ You could develop global modules inside includes/modules.
 
 Or you can also create your components in every mail folder and use them to modularize your code
 
-### Gulp tasks
-
-You can modify gulp.config.js with custom locations, and folder
-names.
-The gulpfile.babel.js file provides different task commands using your commandline tool.  
-
-#### Tasks
-
-##### Development Tasks
-- **$ gulp** - Runs gulp default task, start server, and scaffold tasks 
-
-##### Deploy Tasks
-- **$ gulp deploy** - Minify html in 'dist' folder  
-- **$ gulp zip** - zip every email in dist folder and store 
-them under zip folder in dist location
-
-##### FTP Deployment
-First create a .ftppass file in project root, after execute **gulp ftp**
-```json
-{
-  "ftp":{
-    "host":    "domain",
-    "user":     "user",
-    "pass": "password",
-    "path" :"ftp/folder/path"
-  }
-}
-```
-----------
-
 ### Unit Testing
 Run next command 
  ```sh
 $ npm test
-```
-
-### The final build
-Run next instruction and find your build inside dist folder.
- ```sh
-$ npm run build
 ```

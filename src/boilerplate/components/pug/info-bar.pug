@@ -1,3 +1,5 @@
+include ../../../includes/general.pug
+
 table(width=max_w align="center" class="mobile-table" bgcolor=white)&attributes(tableAtt)
   +vSpacer(20)
   tr
@@ -18,11 +20,11 @@ table(width=max_w align="center" class="mobile-table" bgcolor=white)&attributes(
                       td(width="100%")&attributes(tdCenter)
                         table&attributes(tableAtt)
                           tr
-                            each icon in social_icons
+                            each icon in data.social_icons
                               +hSpacer(10)
                               td(width=icon.width height=icon.height)&attributes(tdCenter)
                                 a(href=icon.url target="_blank")
-                                  img(src=img_path+icon.img width=icon.width height=icon.height style="display: inline-block; border: 0px;")
+                                  img(src=imagePath+icon.img width=icon.width height=icon.height style="display: inline-block; border: 0px;")
                               +hSpacer(10)
                             +hSpacer(10)
                             td(width="60" style="font-size: 20px; line-height: 24px;").f_normal

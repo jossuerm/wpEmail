@@ -1,0 +1,42 @@
+include ../../../includes/general.pug
+
+table(width=max_w align="center" class="mobile-table" bgcolor="#ffffff")&attributes(tableAtt)
+  tr
+    td
+      table(width="100%")&attributes(tableAtt)
+        tr
+          +hSpacer(26)
+          td
+            table#isi-table(width="100%")&attributes(tableAtt)
+              +vSpacer(10)
+              tr
+                td(align="left").f_bold INDICATIONS AND USAGE
+              +vSpacer(12)
+              +addHeading("Nullam",data.isi.heading.content[0])
+              +vSpacer(8)
+              +addHeading("Elementum",data.isi.heading.content[1])
+              +vSpacer(8)
+              +addHeading("Interdum", data.isi.heading.content[2])
+              +vSpacer(4)
+              tr
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    +addSubHeading("Suspendisse", data.isi.subHeading.content[0])
+                    +vSpacer(8)
+                    +addSubHeading("Acumsan", data.isi.subHeading.content[1])
+              +vSpacer(13)
+              tr
+                td(align="left").f_bold ivamus fermentum, turpis vitae&#32;
+                  +link("https://google.com", "PI")
+                  | , condimentum accumsan.
+              +vSpacer(20)
+              tr
+                td
+                  table(width="100%")&attributes(tableAtt)
+                    tr
+                      td #[span.f_bold References:]
+                        each item, index in data.references
+                          -var num = index + 1
+                          span #[b !{' ' + num}.]&nbsp;!{item}
+              +vSpacer(18)
+          +hSpacer(27)

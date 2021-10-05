@@ -1,0 +1,13 @@
+body {
+  font-family: arial;
+  text-align: center;
+}
+section {
+  min-width: 600px;
+  width: 960px;
+  margin: 0 auto;
+}
+ul {
+  display: inline-block;
+  text-align: left;
+}

@@ -1,3 +1,5 @@
+include ../../../includes/general.pug
+
 table(width=max_w align="center" class="mobile-table" bgcolor=white)&attributes(tableAtt)
   +vSpacer(35)
   tr
@@ -36,7 +38,7 @@ table(width=max_w align="center" class="mobile-table" bgcolor=white)&attributes(
                           tr
                             td.footer-text.abbey(style="line-height:20px;")&attributes(tdCenter) &copy;
                             +hSpacer(4)
-                            td.footer-text.abbey(style="letter-spacing:-0.1px;line-height:20px;") 2021 OHG. All Rights Reserved. 2/21 XXX-XX-XXXX 123&nbsp;Test Street, abcde, AB 12345 • #[a.cerulean.underline(href="tel:+12345678900") 1&#8209;234&#8209;567&#8209;8900] •&#32;
+                            td.footer-text.abbey(style="letter-spacing:-0.1px;line-height:20px;") #{data.footer.year} #{data.footer.company}. #{data.footer.copyright} 2/21 XXX-XX-XXXX 123&nbsp;#{data.footer.direction} • #[a.cerulean.underline(href="tel:+12345678900") 1&#8209;234&#8209;567&#8209;8900] •&#32;
                               +link("https://google.com", "test.com").cerulean.underline
                     +vSpacer(50)
                 +hSpacer(35)

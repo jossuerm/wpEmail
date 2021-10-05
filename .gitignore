@@ -1,5 +1,7 @@
-#ignore dist folder
+#ignore dist and build folder
 dist/
+build/
+
 #ignore remote config file
 .ftppass
 package-lock.json

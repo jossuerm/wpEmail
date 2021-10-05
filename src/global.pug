@@ -1,0 +1,13 @@
+//- Used to define variables, this must be load in index.pug and each fragment
+block variables
+  - var fallback = "Open Sans, Helvetica, Arial, sans-serif"
+  - var title = "Email Template"
+  - var white = "#ffffff"
+  - var max_w = 600
+  - var mob = 480
+  - var bg_color= "#eeeeee"
+  - var externalFonts = []
+  - var max_w = max_w || 600
+  - var title = title || "Email template"
+  - var fallback = fallback || "Arial, Helvetica, sans-serif";
+  - var externalFonts = externalFonts || ["https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i", "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i"]
