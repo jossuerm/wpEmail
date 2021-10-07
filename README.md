@@ -43,14 +43,14 @@ Email boilerplate developed with pug that takes advantage of inheritance, variab
 ## Requirements
 
 - NodeJS Installed
-- Sourcer Code Editor
+- Source Code Editor
 
 ## Installation
 
 To prepare this project to run, you'll need to have **NodeJs** 14.17.6 or up installed in your computer. I suggest to use NVM in order to manage different versions easily without incompatibility dependencies.
 
 ### Install dependencies:
-
+To install node_modules and dependencies:
 ```sh
 $ npm install
 ```
@@ -83,7 +83,7 @@ $ npm run build
 ---
 
 ### Webpack Config
-The project have two webpack config (development and production) inside of it there are some configurations that should know.
+The project have two webpack configs (development and production) inside of it there are some configurations:
 
 #### Rules
 If you need more rules to add, you can access it on `./webpack/config/rules` and add necessary rules. For example:
@@ -98,7 +98,7 @@ const rule = {
 ```
 
 ### Plugins
-If you need more rules to add, you can access it on `./webpack/config/rules` and add necessary plugins. For example:
+If you need more plugins to add, you can access it on `./webpack/config/rules` and add necessary plugins. For example:
 
 ```javascript
 const plugin = {
@@ -113,38 +113,67 @@ There is a data.json, here you could handle the copy for your email
 Example of the data.JSON
 
 ```javascript
+
 {
   "header": {
     "title": "Title",
-    "button":"contribute"
+    "button": "contribute"
   },
-  "content":{
+  "content": {
     "title": "Tell Us What You Think in 5 Minutes or Less"
   },
   "social_icons": [
-      {
-        "img": "icon-facebook.png",
-        "url": "#",
-        "width": "35",
-        "height": "29"
-      },
-      {
-        "img": "icon-twitter.png",
-        "url": "#",
-        "width": "35",
-        "height": "29"
-      },
-      {
-        "img": "icon-instagram.png",
-        "url": "#",
-        "width": "35",
-        "height": "29"
-      }
-    ],
-    "comments": [
-      "We created this template based on what emails developers needs, it is not an easy task but we bring you help",
-      "It is a long trip that never ends if you have any suggestion let us know"
-    ]
+    {
+      "img": "icon-facebook.png",
+      "url": "#",
+      "width": "35",
+      "height": "29"
+    },
+    {
+      "img": "icon-twitter.png",
+      "url": "#",
+      "width": "35",
+      "height": "29"
+    },
+    {
+      "img": "icon-instagram.png",
+      "url": "#",
+      "width": "35",
+      "height": "29"
+    }
+  ],
+  "isi": {
+    "heading": {
+      "content": [
+        "Nullam elementum sit amet massa non cursus. Duis molestie arcu a risus dignissim posuere. Maecenas ac purus vitae eros viverra interdum sit amet sed augue. Ut lectus orci, mollis at velit at, mattis ultrices massa.",
+        "Nullam elementum sit amet massa non cursus. Duis molestie arcu a risus dignissim posuere. Maecenas ac purus vitae eros viverra interdum sit amet sed augue. Ut lectus orci, mollis at velit at, mattis ultrices massa.",
+        "Nullam elementum sit amet massa non cursus. Duis molestie arcu a risus dignissim posuere. Maecenas ac purus vitae eros viverra interdum sit amet sed augue:"
+      ]
+    },
+    "subHeading": {
+      "content": [
+        "Suspendisse potenti. Maecenas euismod facilisis lacus, sit amet varius lorem dapibus sed. Etiam euismod arcu at urna vulputate, eget dictum tortor tempus. Donec quis ullamcorper neque.",
+        "ivamus fermentum, turpis vitae vestibulum blandit, felis velit tempor augue, eget ultricies odio diam nec ipsum. Sed sagittis dolor in sem condimentum accumsan. Integer non lobortis eros. Sed porttitor fringilla lacinia."
+      ]
+    }
+  },
+  "comments": [
+    "We created this template based on what emails developers needs, it is not an easy task but we bring you help",
+    "It is a long trip that never ends if you have any suggestion let us know"
+  ],
+  "references": [
+    "Aenean nec feugiat neque. Pellentesque sed enim ultricies, laoreet orci ac, efficitur turpis. Curabitur et felis non lorem vestibulum tristique sit amet sit amet diam. Ut id <i>libero</i> nisl.",
+    "Aenean nec feugiat neque. Pellentesque sed enim ultricies, laoreet orci ac, efficitur turpis. Curabitur et felis non lorem vestibulum tristique sit amet sit amet diam. Ut id libero nisl. Proin finibus elit a <i>sagittis</i> fermentum.",
+    "Aenean nec feugiat neque. Pellentesque sed enim ultricies, laoreet orci ac, efficitur turpis. Curabitur et felis non lorem vestibulum tristique sit amet sit amet diam. Ut id libero nisl. Proin finibus elit a sagittis fermentum. Aenean nec feugiat neque. Pellentesque sed enim ultricies, laoreet orci ac, efficitur turpis.",
+    "Aenean nec feugiat neque. <i>Pellentesque</i> sed enim ultricies, laoreet orci ac, efficitur turpis.",
+    "Donec finibus ex libero, sagittis eleifend leo malesuada accumsan. Vivamus sed risus ut enim tempor sodales in a elit. Vestibulum id eros id augue fringilla tempus sed at <i>metus</i>."
+  ],
+  "footer": {
+    "year":"2021",
+    "company": "OHG",
+    "copyright": "All Rights Reserved.",
+    "direction": "Test Street, abcde, AB 12345"
+  }
 }
 
 ```
@@ -202,13 +231,17 @@ Examples with vSpacer:
 ![](http://i.imgur.com/h9GQRMt.png)
 
 **Headings**
-You can use mixins to create headers and subheaders for example for `./src/boilerplate/components/pug/isi.pug`
+You can use mixins to create headers and subheaders. It is located in `./src/boilerplate/components/pug/isi.pug`.
 
 > +addHeading("Nullam",data.isi. heading.content[0])
 > (Heading of ISI)
 
 > +addSubHeading("Suspendisse", data.isi.subHeading.content[0])
 > (SubHeading of ISI)
+
+Examples with Heading:
+
+    +addSubHeading(nameHeading, content)
 
 **Backgrounds for td tag**
 This mixin considers the way to render background images, it is based on [campaign monitor](https://backgrounds.cm/) advice.
