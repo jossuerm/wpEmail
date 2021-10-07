@@ -1,4 +1,3 @@
-
 const rule = {
   imgRule: {
     test: /\.(png|jpg|gif)$/,
@@ -25,9 +24,7 @@ const rule = {
   scssRule: {
     test: /\.scss$/,
     use: [
-      ((process.env.NODE_ENV === 'production')
-        ? MiniCssExtractPlugin.loader
-        : 'style-loader'),
+      ('style-loader'),
       'css-loader',
       'sass-loader'
     ]
