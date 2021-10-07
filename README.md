@@ -21,11 +21,17 @@ Email boilerplate developed with pug that takes advantage of inheritance, variab
     </li>
     <li><a href="#usage">Usage</a></li>
       <ul>
+        <li><a href="#webpack-config">Webpack Config</a></li>
+            <ul>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#plugins">Plugins</a></li>
+            </ul>
         <li><a href="#handle-email-copy">Handle Email COPY</a></li>
         <li><a href="#reuse-reset-attributes">Reuse Reset Attributes</a></li>
         <li><a href="#mixins">Mixins</a></li>
       </ul>
     <li><a href="#modularization">Modularization</a></li>
+    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -37,11 +43,11 @@ Email boilerplate developed with pug that takes advantage of inheritance, variab
 ## Requirements
 
 - NodeJS Installed
-- VSCode
+- Sourcer Code Editor
 
 ## Installation
 
-To prepare this project to run, you'll need to have **NodeJs** 14.17.6 or up installed in your computer. I suggest to use NVM in order to manage differen versions easily.
+To prepare this project to run, you'll need to have **NodeJs** 14.17.6 or up installed in your computer. I suggest to use NVM in order to manage different versions easily without incompatibility dependencies.
 
 ### Install dependencies:
 
@@ -50,6 +56,15 @@ $ npm install
 ```
 
 ### Start Server:
+Before starting a server, create a .env file into **project directory** following as `example.env`.
+
+```javascript
+DEV_PORT = (Development_Port)
+PROD_PORT= (Productio_Port)
+DEV_ENV  =development
+PROD_ENV =production
+
+```
 
 Development:
 
@@ -66,6 +81,31 @@ $ npm run build
 ## Usage
 
 ---
+
+### Webpack Config
+The project have two webpack config (development and production) inside of it there are some configurations that should know.
+
+#### Rules
+If you need more rules to add, you can access it on `./webpack/config/rules` and add necessary rules. For example:
+
+```javascript
+const rule = {
+    pugRule: {
+    test: /\.pug$/,
+    use: ['pug-loader']
+  }
+}
+```
+
+### Plugins
+If you need more rules to add, you can access it on `./webpack/config/rules` and add necessary plugins. For example:
+
+```javascript
+const plugin = {
+    cleanPlugin: new CleanWebpackPlugin()
+}
+
+```
 
 ### Handle Email COPY
 
@@ -161,6 +201,15 @@ Examples with vSpacer:
 
 ![](http://i.imgur.com/h9GQRMt.png)
 
+**Headings**
+You can use mixins to create headers and subheaders for example for `./src/boilerplate/components/pug/isi.pug`
+
+> +addHeading("Nullam",data.isi. heading.content[0])
+> (Heading of ISI)
+
+> +addSubHeading("Suspendisse", data.isi.subHeading.content[0])
+> (SubHeading of ISI)
+
 **Backgrounds for td tag**
 This mixin considers the way to render background images, it is based on [campaign monitor](https://backgrounds.cm/) advice.
 
@@ -199,6 +248,16 @@ You could develop global modules inside includes/modules.
 
 Or you can also create your components in every mail folder and use them to modularize your code
 
+### Contributing
+
+To contribute the project follow the next steps:
+
+1. Fork the project.
+2. Create feature branch (`git checkout -b feature/(nameOfFeature)`) or create a new branch in this format (`git checkout -b (functionality)`).
+3. Commit your changes (`git commit -m '(nameOfCommit)'`).
+4. Push to branch(`git push origin (branchName)`)
+5. Open a PR.
+
 ### License
 
-Distributed under the MIT License. See [ISC](https://opensource.org/licenses/ISC) for more information.
+Distributed under the ISC License. See [ISC](https://opensource.org/licenses/ISC) for more information.
