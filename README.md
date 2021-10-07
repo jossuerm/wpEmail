@@ -98,7 +98,7 @@ const rule = {
 ```
 
 ### Plugins
-If you need more plugins to add, you can access it on `./webpack/config/rules` and add necessary plugins. For example:
+If you need more rules to add, you can access it on `./webpack/config/plugins` and add necessary plugins. For example:
 
 ```javascript
 const plugin = {
