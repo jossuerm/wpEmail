@@ -231,6 +231,7 @@ Examples with vSpacer:
 ![](http://i.imgur.com/h9GQRMt.png)
 
 **Headings**
+
 You can use mixins to create headers and subheaders. It is located in `./src/boilerplate/components/pug/isi.pug`.
 
 > +addHeading("Nullam",data.isi. heading.content[0])
@@ -239,7 +240,7 @@ You can use mixins to create headers and subheaders. It is located in `./src/boi
 > +addSubHeading("Suspendisse", data.isi.subHeading.content[0])
 > (SubHeading of ISI)
 
-Examples with Heading:
+Examples with SubHeading:
 
     +addSubHeading(nameHeading, content)
 
